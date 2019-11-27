@@ -17,13 +17,13 @@ public class TemperatureConverterController {
 
 	@RequestMapping(value = "/fahrenheit", method = RequestMethod.POST)
 	public ResponseEntity<?> celsiusToFahrenheint(@RequestBody String celsius) {
-		float fahrenheit = service.celsiusToFahrenheit(Float.parseFloat(celsius));
+		float fahrenheit = service.celsiusToFahrenheit(celsius);
 		return ResponseEntity.ok().body(fahrenheit);
 	}
 
 	@RequestMapping(value = "/celsius", method = RequestMethod.POST)
 	public ResponseEntity<?> fahrenheitToCelsius(@RequestBody String fahrenheit) {
-		float celsius = service.fahrenheitToCelsius(Float.parseFloat(fahrenheit));
+		float celsius = service.fahrenheitToCelsius(fahrenheit);
 		return ResponseEntity.ok().body(celsius);
 	}
 

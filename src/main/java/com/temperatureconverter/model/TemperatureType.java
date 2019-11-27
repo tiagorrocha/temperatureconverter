@@ -2,7 +2,7 @@ package com.temperatureconverter.model;
 
 public enum TemperatureType {
 
-	CELSIUSTOFAHRENHEITE(1, "Celsius to fahrenheit"), 
+	CELSIUSTOFAHRENHEIT(1, "Celsius to fahrenheit"), 
 	FAHRENHEITTOCELSIUS(2, "Fahrenheit to celsius");
 
 	private int code;

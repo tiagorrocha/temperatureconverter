@@ -17,16 +17,18 @@ public class TemperatureConverterService {
 		return repository.save(temperature);
 	}
 	
-	public float celsiusToFahrenheit(float celsius) {
-		float fahrenheit = (celsius * 9/5 ) + 32;
-		Temperature temperature = new Temperature(celsius,fahrenheit,TemperatureType.CELSIUSTOFAHRENHEITE);
+	public float celsiusToFahrenheit(String celsius) {
+		float c = Float.parseFloat(celsius);
+		float fahrenheit = (c * 9/5 ) + 32;
+		Temperature temperature = new Temperature(c,fahrenheit,TemperatureType.CELSIUSTOFAHRENHEIT);
 		save(temperature);
 		return fahrenheit;
 	}
 	
-	public float fahrenheitToCelsius(float fahrenheit) {
-		float celsius = (fahrenheit - 32) * 5/9;
-		Temperature temperature = new Temperature(celsius,fahrenheit,TemperatureType.FAHRENHEITTOCELSIUS);
+	public float fahrenheitToCelsius(String fahrenheit) {
+		float f = Float.parseFloat(fahrenheit);
+		float celsius = (f - 32) * 5/9;
+		Temperature temperature = new Temperature(celsius,f,TemperatureType.FAHRENHEITTOCELSIUS);
 		save(temperature);
 		return celsius;
 	}
