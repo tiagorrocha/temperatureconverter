@@ -17,7 +17,7 @@ public class HistoryController {
 	@Autowired
 	HistoryService service;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET, produces="application/json")
 	public List<Temperature> getAll(){
 		return service.getAll();
 	}

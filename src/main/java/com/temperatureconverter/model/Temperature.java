@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Temperature implements Serializable {
 	
@@ -13,8 +15,11 @@ public class Temperature implements Serializable {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	@ApiModelProperty(value = "Degrees in Celsius")
 	private float celsius;
+	@ApiModelProperty(value = "Degrees in Fahrenheit")
 	private float fahrenheit;
+	@ApiModelProperty(value = "Type of conversion")
 	private Integer type;
 	
 	public Temperature() {
