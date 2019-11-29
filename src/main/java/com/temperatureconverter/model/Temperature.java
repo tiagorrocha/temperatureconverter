@@ -16,9 +16,9 @@ public class Temperature implements Serializable {
 	@GeneratedValue
 	private Integer id;
 	@ApiModelProperty(value = "Degrees in Celsius")
-	private float celsius;
+	private double celsius;
 	@ApiModelProperty(value = "Degrees in Fahrenheit")
-	private float fahrenheit;
+	private double fahrenheit;
 	@ApiModelProperty(value = "Type of conversion")
 	private Integer type;
 	
@@ -26,7 +26,7 @@ public class Temperature implements Serializable {
 		
 	}
 
-	public Temperature(float celsius, float fahrenheit, TemperatureType temperatureType) {
+	public Temperature(double celsius, double fahrenheit, TemperatureType temperatureType) {
 		super();
 		this.celsius = celsius;
 		this.fahrenheit = fahrenheit;
@@ -41,19 +41,19 @@ public class Temperature implements Serializable {
 		this.id = id;
 	}
 
-	public float getCelsius() {
+	public double getCelsius() {
 		return celsius;
 	}
 
-	public void setCelsius(float celsius) {
+	public void setCelsius(double celsius) {
 		this.celsius = celsius;
 	}
 
-	public float getFahrenheit() {
+	public double getFahrenheit() {
 		return fahrenheit;
 	}
 
-	public void setFahrenheit(float fahrenheit) {
+	public void setFahrenheit(double fahrenheit) {
 		this.fahrenheit = fahrenheit;
 	}
 
