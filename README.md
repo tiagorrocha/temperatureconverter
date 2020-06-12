@@ -3,8 +3,11 @@
 Temperature Converter is an application that converts degrees celsius to fahrenheit and vice versa.
 
 ## Setup
++ **Prerequisites:**
+   + MySQL
+   + Git
 
-Clone repository.
+Clone repository:
 
 ```bash
 git clone https://github.com/tiagorrocha/temperatureconverter.git
@@ -22,17 +25,30 @@ In this project, the credentials for database are:
 + **Prerequisites:**
    + Install Java version 1.8 and Maven 3.6.
 
-##### Run project:
-
+#### Run project
+##### With migrations:
 ```bash
 cd temperatureconverter
 mvn spring-boot:run
 ```
-
+##### No migrations:
+##### Changes in "application.properties" 
+``` txt
+spring.liquibase.enabled=false
+```
+Run:
+```bash
+mvn spring-boot:run
+```
 ##### Run tests:
 ```bash
 mvn test
 ```
+#####  Generate a Changelog from Database:
+```bash
+mvn liquibase:generateChangeLog
+```
+
 ## Eclipse instructions
 + **Prerequisites:**
    + Install Eclipse and the Maven plugin.
@@ -47,10 +63,3 @@ mvn test
 ##### Run tests:
 + Right-click on project
 + Run as > Junit Test
-
-
-
-
-
-
-
