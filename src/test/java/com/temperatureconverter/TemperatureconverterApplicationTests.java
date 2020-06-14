@@ -1,6 +1,8 @@
 package com.temperatureconverter;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 import java.util.stream.Collectors;
@@ -18,6 +20,7 @@ import com.temperatureconverter.repository.HistoryRepository;
 import com.temperatureconverter.repository.TemperatureConverterRepository;
 import com.temperatureconverter.service.HistoryService;
 import com.temperatureconverter.service.TemperatureConverterService;
+import com.temperatureconverter.service.exception.NumberFormatException;
 
 @SpringBootTest
 class TemperatureconverterApplicationTests {
@@ -60,5 +63,15 @@ class TemperatureconverterApplicationTests {
 		double celsius = 5;
 		when(temperatureConverterService.fahrenheitToCelsius(fahrenheit)).thenReturn(celsius);
 		assertEquals(celsius, temperatureConverterService.fahrenheitToCelsius(fahrenheit));
+	}
+	@Test
+	public void throwNumberFormatExceptionTest() {
+		String celsius = "test";
+		Exception exception  = assertThrows(NumberFormatException.class, () -> {
+			temperatureConverterService.celsiusToFahrenheit(celsius);
+		});
+		String expectedMessage = "Number Format Excepetion for input string: " + celsius;
+		String actualMessage = exception.getMessage();
+		assertTrue(actualMessage.contains(expectedMessage));
 	}
 }
